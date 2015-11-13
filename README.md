@@ -41,7 +41,33 @@ and rescue away
 begin
   user = User.find(id)
 rescue User::RecordNotFound
-  # handle
+  # handle missing user
+end
+```
+
+This lets you handle RecordNotFound for different models seperately.
+
+```ruby
+begin
+  user = User.find(id)
+  post = Post.find(id)
+rescue User::RecordNotFound
+  # handle missing user
+rescue Post::RecordNotFound
+  # handle missing post
+end
+```
+
+You can still use `ActiveRecord::RecordNotFound`.
+
+```ruby
+begin
+  user = User.find(id)
+  post = Post.find(id)
+rescue User::RecordNotFound
+  # handle missing user
+rescue ActiveRecord::RecordNotFound
+  # handle missing posts and other models
 end
 ```
 
