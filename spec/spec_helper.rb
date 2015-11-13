@@ -1,4 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'pry'
 require 'not_found'
 
 puts "Using ActiveRecord #{ActiveRecord::VERSION::STRING}"
@@ -14,7 +15,7 @@ ActiveRecord::Schema.define do
   create_table :users, :force => true do |t|
     t.string  :name
     t.string :email
-    t.timestamps
+    t.timestamps null: true
   end
 end
 

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 class User < ActiveRecord::Base
+  include NotFound::Mixin
 end
 
 describe NotFound::Mixin do
