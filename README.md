@@ -1,5 +1,10 @@
 # NotFound
 
+[![Gem Version](https://badge.fury.io/rb/not_found.png)](http://badge.fury.io/rb/not_found)
+[![Code Climate](https://codeclimate.com/github/krisleech/not_found.png)](https://codeclimate.com/github/krisleech/not_found)
+[![Build Status](https://travis-ci.org/krisleech/not_found.png?branch=master)](https://travis-ci.org/krisleech/not_found)
+[![Coverage Status](https://coveralls.io/repos/krisleech/not_found/badge.png?branch=master)](https://coveralls.io/r/krisleech/not_found?branch=master)
+
 Allows you to rescue `ActiveRecord::RecordNotFound` for a specific model.
 
 For example if you have a `User` model you can rescue `User::RecordNotFound`.
