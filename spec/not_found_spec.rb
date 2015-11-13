@@ -4,18 +4,20 @@ class User < ActiveRecord::Base
   include NotFound::Mixin
 end
 
-describe NotFound::Mixin do
-  describe 'when record does not exist' do
-    it 'raises RecordNotFound scoped to model' do
-      expect { User.find(1) }.to raise_error(User::RecordNotFound)
-    end
+describe User, 'model' do
+  describe 'with NotFound::Mixin included' do
+    describe 'when record does not exist' do
+      it 'raises User::RecordNotFound' do
+        expect { User.find(1) }.to raise_error(User::RecordNotFound)
+      end
 
-    it 'raise ActiveRecord::RecordNotFound' do
-      expect { User.find(1) }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
+      it 'raises ActiveRecord::RecordNotFound' do
+        expect { User.find(1) }.to raise_error(ActiveRecord::RecordNotFound)
+      end
 
-  it 'has a version number' do
-    expect(NotFound::VERSION).not_to be nil
+      it 'raises User::RecordNotFound with expected message' do
+        expect { User.find(1) }.to raise_error(User::RecordNotFound,  "Couldn't find User with 'id'=1")
+      end
+    end
   end
 end

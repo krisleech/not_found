@@ -7,10 +7,10 @@ module NotFound
       base.class_eval do
         include ActiveSupport::Rescuable
 
-        base.const_set('RecordNotFound', ActiveRecord::RecordNotFound)
+        base.const_set('RecordNotFound', ::ActiveRecord::RecordNotFound)
 
-        rescue_from ActiveRecord::RecordNotFound do |e|
-          raise User::RecordNotFound
+        rescue_from ::ActiveRecord::RecordNotFound do |e|
+          raise self::RecordNotFound.new(e.message)
         end
       end
     end
