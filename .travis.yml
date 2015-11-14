@@ -1,4 +1,8 @@
 language: ruby
-rvm:
-  - 2.1.5
 before_install: gem install bundler -v 1.10.6
+script: rspec spec
+sudo: false
+rvm:
+  - '2.2.2'
+  - jruby
+  - rbx-2
