@@ -1,11 +1,12 @@
 language: ruby
 before_install: gem install bundler -v 1.10.6
-script: rspec spec
+bundler_args: --without=extras
+script: bundle exec rspec spec
 sudo: false
 gemfile:
   - gemfiles/activerecord-3.0
   - gemfiles/activerecord-4.0
 rvm:
   - '2.2.2'
-  - jruby
+  - jruby-21mode
   - rbx-2
