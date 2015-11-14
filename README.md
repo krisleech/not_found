@@ -16,7 +16,8 @@ Code which rescue `ActiveRecord::Record` will still work as expected.
 Because a rescue block around code which rescues `ActiveRecord::RecordNotFound`
 might work as expected today, but some time in the future when within that
 block another model ends up raising `ActiveRecord::RecordNotFound` it leads to
-unexpected, or at the very least, behaviour.
+unexpected behaviour which is diffcult to trace. This gem allows you to be
+explicit about what you want to rescue.
 
 ## Installation
 
@@ -40,7 +41,7 @@ or every model
 ActiveRecord::Base.class_eval { include NotFound::Mixin }
 ```
 
-and rescue away
+and rescue away like this
 
 ```ruby
 begin
@@ -50,7 +51,7 @@ rescue User::RecordNotFound
 end
 ```
 
-This lets you handle RecordNotFound for different models seperately.
+or this
 
 ```ruby
 begin
@@ -63,7 +64,7 @@ rescue Post::RecordNotFound
 end
 ```
 
-You can still use `ActiveRecord::RecordNotFound`.
+or this
 
 ```ruby
 begin
