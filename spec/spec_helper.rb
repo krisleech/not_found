@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-require 'pry' unless ENV['CI']
+require 'pry' unless ENV.has_key?('CI')
 require 'not_found'
 
 puts "Using ActiveRecord #{ActiveRecord::VERSION::STRING}"
