@@ -1,4 +1,4 @@
-# NotFound
+# NotFound (alpha)
 
 [![Gem Version](https://badge.fury.io/rb/not_found.png)](http://badge.fury.io/rb/not_found)
 [![Code Climate](https://codeclimate.com/github/krisleech/not_found.png)](https://codeclimate.com/github/krisleech/not_found)
